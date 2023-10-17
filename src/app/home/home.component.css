@@ -1,0 +1,14 @@
+div{
+    display: flex;
+    margin: 80px 150px;
+    justify-content: space-evenly;
+}
+
+img{
+    width: 20vw;
+}
+
+p{
+    width: 40rem;
+    font-size: 1.5em;
+}
