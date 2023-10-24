@@ -1,0 +1,17 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit(pet)" #petForm="ngForm">
+        <h3>Registrar mascota</h3>
+        
+        <div id="alert" *ngIf="name.invalid || type.invalid || breed.invalid || sex.invalid || age.invalid">
+            Ingresa todos los datos!
+        </div>
+
+        <input required #name="ngModel" type="text" name="name" placeholder="Nombre" [(ngModel)]="pet.name">
+        <input required #type="ngModel" type="text" name="type" placeholder="Tipo" [(ngModel)]="pet.type">
+        <input required #breed="ngModel" type="text" name="breed" placeholder="Raza" [(ngModel)]="pet.breed">
+        <input required #sex="ngModel" type="text" name="sex" placeholder="Sexo" [(ngModel)]="pet.sex">
+        <input required #age="ngModel" type="number" name="age" placeholder="Edad" [(ngModel)]="pet.age">
+        <button [disabled]="petForm.invalid" type="submit">Registrar</button>
+
+    </form>
+</div>

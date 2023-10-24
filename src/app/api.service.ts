@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
+import { Pet } from 'src/models/pet.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,7 @@ export class ApiService {
       name: 'Firulais',
       type: 'perro',
       breed: 'criollo',
+      sex: 'masculino',
       age: 4,
       diseases: [
         {
@@ -86,4 +88,9 @@ export class ApiService {
     }
     return petDetail
   }
+
+  registerPet(pet: Pet) {
+    console.log(pet);
+  }
+
 }
