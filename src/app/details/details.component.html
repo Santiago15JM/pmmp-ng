@@ -5,6 +5,7 @@
         <ul>
             <li>{{ petDetail.type }}</li>
             <li>{{ petDetail.breed }}</li>
+            <li>{{ petDetail.sex }}</li>
             <li>{{ petDetail.age }} años</li>
         </ul>
     </div>
@@ -12,15 +13,13 @@
         <div class="details-info">
             <h2>Enfermedades</h2>
             <ul>
-                <div *ngFor="let disease of petDetail.diseases">
-                    <li>{{ disease.name }}</li>
-                </div>
+                <li *ngFor="let disease of petDetail.diseases">{{ disease.name }}</li>
             </ul>
         </div>
         <div class="details-info">
             <h2>Recomendaciones</h2>
-            <ul *ngFor="let recommendation of petDetail.recommendations">
-                <li>{{ recommendation.description }}</li>
+            <ul>
+                <li *ngFor="let recommendation of petDetail.recommendations">{{ recommendation.description }}</li>
             </ul>
         </div>
         <div class="details-info">
