@@ -1,0 +1,33 @@
+.edit-profile-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+form{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    background-color: #d9d9d9;
+    margin: 40px;
+    padding: 20px;
+    align-items: center;
+}
+
+input{
+    margin: 10px;
+    padding: 10px;
+    border: 0;
+}
+
+button{
+    border: 0;
+    padding: 10px;
+    color: white;
+    background: #3366cc;
+    cursor: pointer;
+}
+
+#alert{
+    color: #3366cc;
+}

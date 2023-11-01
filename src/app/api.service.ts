@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { Pet } from 'src/models/pet.model';
+import { User } from "src/models/user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,20 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getUser(id: string) {
-    return this.http.get(this.url + 'users/getUser?id=' + id)
+    // return this.http.get(this.url + 'users/getUser?id=' + id)
+    let user: User = {
+      id: 123,
+      name: 'Burgundofora Segismundo',
+      lastname: 'Hitler Bedolla',
+      email: 'burundofora@email.com',
+      phone: 5555555555,
+      address: 'calle 666 # 67-76'
+    }
+    return user
+  }
+
+  registerUser(user: User) {
+    console.log(user);
   }
 
   getAllUsers() {
@@ -21,7 +35,7 @@ export class ApiService {
   getPet(id: string) {
     let date = new Date('2020-02-15');
     let revaccination = new Date('2024-02-30');
-    let petDetail = {
+    let petDetail: Pet = {
       id: 1,
       name: 'Firulais',
       type: 'perro',

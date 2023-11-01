@@ -12,6 +12,7 @@ import { DetailsComponent } from './details/details.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddPetComponent } from './add-pet/add-pet.component';
 import { AnimalPanelComponent } from './animal-panel/animal-panel.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AnimalPanelComponent } from './animal-panel/animal-panel.component';
     DetailsComponent,
     DashboardComponent,
     AnimalPanelComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,

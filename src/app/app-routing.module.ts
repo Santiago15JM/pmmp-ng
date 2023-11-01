@@ -5,13 +5,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DetailsComponent } from './details/details.component';
 import { AddPetComponent } from './add-pet/add-pet.component';
 import { AnimalPanelComponent } from './animal-panel/animal-panel.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "dashboard", component: DashboardComponent },
   { path: "dashboard/add-pet", component: AddPetComponent },
   { path: "dashboard/animal-situation", component: AnimalPanelComponent },
-  { path: "dashboard/edit-profile", component: DashboardComponent },
+  { path: "dashboard/edit-profile", component: EditProfileComponent },
   { path: "dashboard/pet-details/:id", component: DetailsComponent },
 ];
 
