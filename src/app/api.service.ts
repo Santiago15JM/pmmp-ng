@@ -24,12 +24,8 @@ export class ApiService {
     return user
   }
 
-  registerUser(user: User) {
+  editUser(user: User) {
     console.log(user);
-  }
-
-  getAllUsers() {
-    return this.http.get(this.url + 'users/getAll')
   }
 
   getPet(id: string) {

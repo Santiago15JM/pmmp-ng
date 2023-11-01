@@ -1,36 +1,34 @@
-<div class="container">
-    <div class="option-container">
-        <div class="dashboard-option" routerLink="/dashboard/add-pet">
-            <img src="../../assets/add-pet.png" alt="">
-            <a>Registrar mascota</a>
-        </div>
-        <div class="dashboard-option" routerLink="/dashboard/animal-situation">
-            <img src="../../assets/animal-situation.png" alt="">
-            <a>Ver situacion de mascotas similares</a>
-        </div>
-        <div class="dashboard-option" routerLink="/dashboard/edit-profile">
-            <img src="../../assets/edit-profile.png" alt="">
-            <a>Editar informacion personal</a>
-        </div>
+<div class="option-container">
+    <div class="dashboard-option" routerLink="/dashboard/add-pet">
+        <img src="../../assets/add-pet.png" alt="">
+        <a>Registrar mascota</a>
     </div>
+    <div class="dashboard-option" routerLink="/dashboard/animal-situation">
+        <img src="../../assets/animal-situation.png" alt="">
+        <a>Ver situacion de mascotas similares</a>
+    </div>
+    <div class="dashboard-option" routerLink="/dashboard/edit-profile">
+        <img src="../../assets/edit-profile.png" alt="">
+        <a>Editar informacion personal</a>
+    </div>
+</div>
 
-    <div class="pet-container">
-        <h3>Mascotas registradas</h3>
-        <table>
-            <tr>
-                <th>Nombre</th>
-                <th>Tipo</th>
-                <th>Raza</th>
-                <th>Edad</th>
-                <th id="button"></th>
-            </tr>
-            <tr *ngFor="let p of pets">
-                <td>{{p.name}}</td>
-                <td>{{p.type}}</td>
-                <td>{{p.breed}}</td>
-                <td>{{p.age}}</td>
-                <button [routerLink]="['/dashboard/pet-details', p.id]">Detalles</button>
-            </tr>
-        </table>
-    </div>
+<div class="pet-container">
+    <h3>Mascotas registradas</h3>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Raza</th>
+            <th>Edad</th>
+            <th id="button"></th>
+        </tr>
+        <tr *ngFor="let p of pets">
+            <td>{{p.name}}</td>
+            <td>{{p.type}}</td>
+            <td>{{p.breed}}</td>
+            <td>{{p.age}}</td>
+            <button [routerLink]="['/dashboard/pet-details', p.id]">Detalles</button>
+        </tr>
+    </table>
 </div>

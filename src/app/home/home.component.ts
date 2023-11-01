@@ -12,9 +12,4 @@ export class HomeComponent {
   paragraph =
     'Esta plataforma permite registrar tanto a los propietarios como a los animales a su cargo, incluyendo información sobre su estado de salud, como vacunas y antecedentes médicos, y permite estimar las condiciones de salud que puedan afectar a estas mascotas.';
 
-  onClick() {
-    this.ApiService.getAllUsers().subscribe((data) => {
-      console.log(data);
-    });
-  }
 }

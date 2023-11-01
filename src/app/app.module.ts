@@ -21,6 +21,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     TopBarComponent,
     DetailsComponent,
     DashboardComponent,
+    AddPetComponent,
     AnimalPanelComponent,
     EditProfileComponent,
   ],

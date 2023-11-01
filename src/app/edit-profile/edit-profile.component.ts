@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class EditProfileComponent {
   user!: User
 
-  constructor(private router: Router, private route: ActivatedRoute, private Api: ApiService){}
+  constructor(private router: Router, private Api: ApiService){}
 
   ngOnInit() {
     // const routeParams = this.route.snapshot.paramMap;
@@ -24,7 +24,7 @@ export class EditProfileComponent {
   }
 
   onSubmit(user: User) {
-    this.Api.registerUser(user);
+    this.Api.editUser(user);
     this.router.navigate(['dashboard']);
   }
 }
