@@ -1,0 +1,14 @@
+<h1>Situacion de animales</h1>
+<div class="summary" *ngFor="let s of summaries">
+    <div class="stats">
+        <h2>{{s.type}}</h2>
+        <div class="stat" *ngFor="let i of s.stats">
+            <circle-progress [percent]="i.value" ></circle-progress>
+            <p >{{i.stat}}</p>
+        </div>
+    </div>
+    <div class="recommendations">
+        <h2>Recomendaciones</h2>
+        <p *ngFor="let r of s.recommendations">{{r}}</p>
+    </div>
+</div>

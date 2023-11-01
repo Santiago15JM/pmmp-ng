@@ -93,4 +93,21 @@ export class ApiService {
     console.log(pet);
   }
 
+  getSummaries(): any {
+    return [{
+      type: "Perros",
+      stats: [
+        { stat: "El 12% de los perros criollos padecen de rabia", value: 12 },
+        { stat: "El 30% de los perros Beagle padecen de gastroenteritis", value: 30 }
+      ],
+      recommendations: ["Vacunar contra la rabia", "Proporcionar una dieta adecuada"]
+    }, {
+      type: "Gatos",
+      stats: [
+        { stat: "El 27% de los gatos criollos padecen de leucemia", value: 27 },
+        { stat: "El 40% de los gatos criollos padecen de sida", value: 40 }
+      ],
+      recommendations: ["Vacunar contra la leucemia", "Aislar contacto con otros gatos", "Mantener a los gatos en interiores"]
+    }]
+  }
 }

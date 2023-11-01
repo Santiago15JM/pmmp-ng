@@ -1,0 +1,16 @@
+.summary{
+    margin: 20px;
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: #d9d9d9;
+}
+
+.stat{
+    display: flex;
+    align-items: center;
+}
+
+circle-progress{
+    margin-right: 20px;
+}
