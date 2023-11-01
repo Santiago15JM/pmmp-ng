@@ -13,6 +13,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddPetComponent } from './add-pet/add-pet.component';
 import { AnimalPanelComponent } from './animal-panel/animal-panel.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     AddPetComponent,
     AnimalPanelComponent,
     EditProfileComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
