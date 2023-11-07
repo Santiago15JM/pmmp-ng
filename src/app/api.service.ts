@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { Pet } from 'src/models/pet.model';
-import { User, RegisterUser } from "src/models/user.model";
+import { User, RegisterUser, LoginUser } from "src/models/user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,10 @@ export class ApiService {
     console.log(user);
   }
 
+  loginUser(user: LoginUser) {
+    console.log(user);
+  }
+
   getUser(id: string) {
     // return this.http.get(this.url + 'users/getUser?id=' + id)
     let user: User = {
@@ -22,6 +26,7 @@ export class ApiService {
       name: 'Burgundofora Segismundo',
       lastname: 'Hitler Bedolla',
       email: 'burundofora@email.com',
+      password: '123123asdasd',
       phone: 5555555555,
       address: 'calle 666 # 67-76'
     }

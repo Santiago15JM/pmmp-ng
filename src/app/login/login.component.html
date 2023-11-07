@@ -1,15 +1,18 @@
 <div class="login-container">
     <form (ngSubmit)="onSubmit(user)" #userForm="ngForm">
         <h2>Iniciar sesion</h2>
-        
+
         <div id="alert" *ngIf="email.invalid || password.invalid">
             Ingresa todos los datos!
         </div>
 
         <input required #email="ngModel" type="text" name="email" placeholder="Email" [(ngModel)]="user.email">
         <input required #password="ngModel" type="text" name="password" placeholder="Contraseña" [(ngModel)]="user.password">
-        
+
         <button [disabled]="userForm.invalid" type="submit">Iniciar sesion</button>
 
+        <div class="register-message">
+          <p>¿Aun no tienes cuenta? <a href="register">Registrate</a></p>
+        </div>
     </form>
 </div>
