@@ -1,17 +1,18 @@
-<div class="edit-profile-container">
+<div class="create-user-container">
   <form (ngSubmit)="onSubmit(user)" #userForm="ngForm">
-      <h3>Editar perfil</h3>
+      <h3>Registrar perfil</h3>
 
-      <div id="alert" *ngIf="name.invalid || lastname.invalid || email.invalid || phone.invalid || address.invalid">
+      <div id="alert" *ngIf="name.invalid || lastname.invalid || email.invalid || password.invalid || phone.invalid || address.invalid">
           Ingresa todos los datos!
       </div>
 
       <input required #name="ngModel" type="text" name="name" placeholder="Nombre" [value]="user.name" [(ngModel)]="user.name">
       <input required #lastname="ngModel" type="text" name="lastname" placeholder="Apellidos" [value]="user.lastname" [(ngModel)]="user.lastname">
       <input required #email="ngModel" type="email" name="email" placeholder="Correo" [value]="user.email" [(ngModel)]="user.email">
+      <input required #password="ngModel" type="password" name="password" placeholder="Contraseña" [value]="user.password" [(ngModel)]="user.password">
       <input required #phone="ngModel" type="number" name="phone" placeholder="Telefono" [value]="user.phone" [(ngModel)]="user.phone">
       <input required #address="ngModel" type="text" name="address" placeholder="Direccion" [value]="user.address" [(ngModel)]="user.address">
-      <button [disabled]="userForm.invalid" type="submit">Editar</button>
+      <button [disabled]="userForm.invalid" type="submit">Registrar</button>
 
   </form>
 </div>

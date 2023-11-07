@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
 
 import { User } from 'src/models/user.model';
-import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
 @Component({
