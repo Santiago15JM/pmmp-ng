@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { Pet } from 'src/models/pet.model';
-import { User } from "src/models/user.model";
+import { User, RegisterUser } from "src/models/user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,10 @@ export class ApiService {
   url = 'http://localhost:8080/'
 
   constructor(private http: HttpClient) { }
+
+  createUser(user: RegisterUser) {
+    console.log(user);
+  }
 
   getUser(id: string) {
     // return this.http.get(this.url + 'users/getUser?id=' + id)

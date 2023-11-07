@@ -14,6 +14,7 @@ import { AddPetComponent } from './add-pet/add-pet.component';
 import { AnimalPanelComponent } from './animal-panel/animal-panel.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LoginComponent } from './login/login.component';
     AddPetComponent,
     AnimalPanelComponent,
     EditProfileComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
