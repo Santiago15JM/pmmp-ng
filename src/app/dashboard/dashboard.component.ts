@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../api.service';
+
+import { ListedPet, Pet } from 'src/models/pet.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,20 +9,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+  pets: ListedPet[] = []
 
-  pets: any[] = [{
-    id: 1,
-    name: 'Firulais',
-    type: 'perro',
-    breed: 'criollo',
-    age: 4,
-  },
-  {
-    id: 2,
-    name: 'Misifus',
-    type: 'gato',
-    breed: 'criollo',
-    age: 6,
-  },
-  ]
+  constructor(private Api: ApiService) {}
+  
+  ngOnInit() {
+    this.Api.getUserPets().subscribe(pets => {
+      this.pets = pets;
+    });
+  }
+
 }

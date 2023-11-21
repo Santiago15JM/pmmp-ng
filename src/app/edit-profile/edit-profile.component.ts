@@ -19,7 +19,8 @@ export class EditProfileComponent {
     // const id = String(routeParams.get('id'));
     const id = '1';
 
-    this.user = this.Api.getUser(id) as User;
+    this.Api.getUser(id).subscribe(u => this.user = u)
+    // this.user = this.Api.getUser(id) as User;
   }
 
   onSubmit(user: User) {

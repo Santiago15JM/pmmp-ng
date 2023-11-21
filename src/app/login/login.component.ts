@@ -14,9 +14,12 @@ export class LoginComponent {
   user: LoginUser = { email: "", password: "" }
 
   onSubmit(user: LoginUser) {
-    //  hacer que app.component.ts.isLoggedIn = true
-    // api.login()
-    this.Api.loginUser(user);
-    this.router.navigate(['dashboard'])
+    this.Api.loginUser(user).subscribe(u => {
+      this.Api.userId = u
+      
+      if (this.Api.userId != "")
+        this.router.navigate(['dashboard'])
+    })
+    
   }
 }

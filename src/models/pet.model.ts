@@ -1,32 +1,35 @@
 export interface Pet {
-    id: number;
-    name: string;
-    type: string;
-    breed: string;
-    sex: string;
-    age: number;
-    diseases: Disease[];
-    recommendations: Recommendation[];
-    vaccines: Vaccine[];
+    id: string
+    ownerId: string
+    name: string
+    type: string
+    breed: string
+    sex: string
+    age: number
+    diseases: Disease[]
+    vaccines: Vaccine[]
 }
 
+export interface RegisterPet extends Omit<Pet, "id"> { }
+
 export interface Disease {
-    id: number;
-    name: string;
-    description: string;
-    // recommendations: Recommendation[];
+    id: string
+    name: string
+    description: string
+    recommendations: Recommendation[]
 }
 
 export interface Recommendation {
-    id: number;
-    description: string;
+    id: string
+    description: string
 }
 
 export interface Vaccine {
-    id: number;
-    name: string;
-    description: string;
-    // validity: Time;
-    date: Date;
-    revaccination: Date;
+    id: string
+    name: string
+    description: string
+    date: Date
+    validity: number
 }
+
+export interface ListedPet extends Omit<Pet, "ownerId"|"age"|"diseases"|"vaccines"> {}

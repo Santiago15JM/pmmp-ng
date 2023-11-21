@@ -15,20 +15,23 @@
 
 <div class="pet-container">
     <h3>Mascotas registradas</h3>
-    <table>
+    <table *ngIf="pets.length != 0; else elseBlock">
         <tr>
             <th>Nombre</th>
             <th>Tipo</th>
             <th>Raza</th>
-            <th>Edad</th>
+            <th>Sexo</th>
             <th id="button"></th>
         </tr>
         <tr *ngFor="let p of pets">
             <td>{{p.name}}</td>
             <td>{{p.type}}</td>
             <td>{{p.breed}}</td>
-            <td>{{p.age}}</td>
+            <td>{{p.sex}}</td>
             <button [routerLink]="['/dashboard/pet-details', p.id]">Detalles</button>
         </tr>
     </table>
+    <ng-template #elseBlock>
+        <p>No hay mascotas registradas</p>
+    </ng-template>
 </div>

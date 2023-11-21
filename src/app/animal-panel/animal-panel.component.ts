@@ -12,7 +12,7 @@ export class AnimalPanelComponent {
   constructor(private Api: ApiService) { }
 
   ngOnInit() {
-    this.summaries = this.Api.getSummaries()
+    this.summaries = this.Api.getPublicStatus()
   }
 
 
