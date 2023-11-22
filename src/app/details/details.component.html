@@ -1,41 +1,49 @@
 <div class="details-container">
     <div class="basic-details">
         <h2>Detalles de:</h2>
-        <h3>{{ petDetail.name }}</h3>
+        <h3>{{ pet.name }}</h3>
         <ul>
-            <li>{{ petDetail.type }}</li>
-            <li>{{ petDetail.breed }}</li>
-            <li>{{ petDetail.sex }}</li>
-            <li>{{ petDetail.age }} años</li>
+            <li>{{ pet.type }}</li>
+            <li>{{ pet.breed }}</li>
+            <li>{{ pet.sex }}</li>
+            <li>{{ pet.age }} años</li>
         </ul>
     </div>
     <div class="main-details">
         <div class="details-info">
             <h2>Enfermedades</h2>
-            <ul *ngIf="petDetail.diseases.length != 0; else elseDis">
-                <li *ngFor="let disease of petDetail.diseases">{{ disease.name }}: {{disease.description}}</li>
+            <ul *ngIf="pet.diseases.length != 0; else elseDis">
+                <li *ngFor="let disease of pet.diseases">{{ disease.name }}: {{disease.description}}</li>
             </ul>
             <ng-template #elseDis>
                 <p>No hay enfermedades registradas</p>
             </ng-template>
+            <div class="new-disease">
+                <h3>Agregar enfermedad</h3>
+                <select (change)="updateNewDisease($event)">
+                    <option disabled selected value="">Seleccionar enfermedad</option>
+                    <option *ngFor="let disease of diseases" [value]="disease.id">{{ disease.name }}</option>
+                </select>
+                <button (click)="osSubmitDisease()">Agregar</button>
+            </div>
         </div>
-        <div class="details-info" *ngIf="petDetail.diseases.length != 0">
+        <div class="details-info" *ngIf="pet.diseases.length != 0">
             <h2>Recomendaciones</h2>
             <ul>
-                <ng-container *ngFor="let disease of petDetail.diseases">
+                <ng-container *ngFor="let disease of pet.diseases">
                     <li *ngFor="let r of disease.recommendations">{{ r.description }}</li>
                 </ng-container>
             </ul>
         </div>
         <div class="details-info">
             <h2>Vacunas</h2>
-            <table *ngIf="petDetail.vaccines.length != 0; else elseVac">
+            <table *ngIf="pet.vaccines.length != 0; else elseVac">
                 <tr>
                     <th>Vacuna</th>
                     <th>Fecha</th>
                     <th>Validez (Meses)</th>
                 </tr>
-                <tr *ngFor="let vaccine of petDetail.vaccines">
+                <tr *ngFor="let vaccine of pet.vaccines">
                     <td>{{ vaccine.name }}</td>
                     <td>{{ vaccine.date | date: 'dd/MM/yyyy' }}</td>
                     <td>{{ vaccine.validity }}</td>

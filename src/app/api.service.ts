@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
-import { ListedPet, Pet, RegisterPet } from 'src/models/pet.model';
+import { ListedPet, Pet, RegisterPet, DiseaseName } from 'src/models/pet.model';
 import { User, RegisterUser, LoginUser } from "src/models/user.model";
+import { AddDiseaseDTO } from 'src/models/dto/dtos';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
   url = 'http://localhost:8081/'
-  userId = ''
 
   constructor(private http: HttpClient) { }
 
@@ -20,9 +20,9 @@ export class ApiService {
     return this.http.post(`${this.url}users/login`, user, { responseType: 'text' })
   }
 
-  logoutUser() {
-    this.userId = '';
-  }
+  // logoutUser() {
+  //   this.userId = '';
+  // }
 
   getUser(id: string) {
     return this.http.get<User>(`${this.url}users/getUser?id=${id}`);
@@ -44,7 +44,6 @@ export class ApiService {
 
   getPet(id: string) {
     return this.http.get<Pet>(`${this.url}pets/getPet?id=${id}`);
-    // let date = new Date('2020-02-15');
     // let revaccination = new Date('2024-02-30');
     // let petDetail: Pet = {
     //   id: "1",
@@ -112,8 +111,8 @@ export class ApiService {
     return this.http.post<Pet>(`${this.url}pets/addPet`, pet);
   }
 
-  getUserPets() {
-    return this.http.get<ListedPet[]>(`${this.url}pets/getUserPets?u=${this.userId}`);
+  getUserPets(userId: string) {
+    return this.http.get<ListedPet[]>(`${this.url}pets/getUserPets?u=${userId}`);
   }
 
   getPublicStatus(): any {
@@ -136,5 +135,13 @@ export class ApiService {
     //   ],
     //   recommendations: ["Vacunar contra la leucemia", "Aislar contacto con otros gatos", "Mantener a los gatos en interiores"]
     // }]
+  }
+
+  getDiseases(type: string) {
+    return this.http.get<DiseaseName[]>(`${this.url}diseases?type=${type}`);
+  }
+
+  addDisease(dto: AddDiseaseDTO) {
+    return this.http.post(`${this.url}pets/addDisease`, dto);
   }
 }

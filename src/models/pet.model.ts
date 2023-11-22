@@ -19,6 +19,8 @@ export interface Disease {
     recommendations: Recommendation[]
 }
 
+export interface DiseaseName extends Omit<Disease, "description" | "recommendations"> { }
+
 export interface Recommendation {
     id: string
     description: string

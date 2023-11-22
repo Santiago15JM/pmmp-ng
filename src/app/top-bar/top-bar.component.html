@@ -20,6 +20,6 @@
 <nav>
     <a routerLink="">Inicio</a>
     <a routerLink="dashboard">Panel de información</a>
-    <a *ngIf="!isLoggedIn()" routerLink="/login">Iniciar sesión</a>
-    <a *ngIf="isLoggedIn()" (click)="logOut()">Cerrar sesión</a>
+    <a *ngIf="!(Auth.isLoggedIn | async)" routerLink="/login">Iniciar sesión</a>
+    <a *ngIf="Auth.isLoggedIn | async" (click)="logOut()">Cerrar sesión</a>
 </nav>

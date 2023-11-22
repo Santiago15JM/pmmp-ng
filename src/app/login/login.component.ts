@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 
 import { LoginUser } from 'src/models/user.model';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,16 +11,13 @@ import { LoginUser } from 'src/models/user.model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private router: Router, private Api: ApiService) { }
+  constructor(private router: Router, private auth: AuthService) { }
   user: LoginUser = { email: "", password: "" }
 
   onSubmit(user: LoginUser) {
-    this.Api.loginUser(user).subscribe(u => {
-      this.Api.userId = u
-      
-      if (this.Api.userId != "")
+    this.auth.login(user).subscribe(id => {
+      if (id)
         this.router.navigate(['dashboard'])
     })
-    
   }
 }

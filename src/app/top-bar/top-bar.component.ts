@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -9,14 +10,10 @@ import { Router } from '@angular/router';
 })
 export class TopBarComponent {
 
-  constructor(private router: Router, private Api: ApiService) {}
-
-  isLoggedIn() {
-    return this.Api.userId != ""
-  }
+  constructor(private router: Router, public Auth: AuthService) {}
 
   logOut() {
-    this.Api.logoutUser();
-    this.router.navigate(['']);
+    this.Auth.logout()
+    this.router.navigate([''])
   }
 }
