@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ActivatedRoute } from '@angular/router';
 
-import { Pet, DiseaseName } from 'src/models/pet.model';
-import { AddDiseaseDTO } from 'src/models/dto/dtos';
+import { Pet, Vaccine } from 'src/models/pet.model';
+import { AddDiseaseDTO, AddVaccineDTO, DiseaseName } from 'src/models/dto/dtos';
 
 @Component({
   selector: 'app-details',
@@ -16,6 +16,14 @@ export class DetailsComponent {
 
   constructor(private route: ActivatedRoute, private Api: ApiService) { }
   newDisease = ''
+  date = new Date();
+  newVaccine: Vaccine = {
+    name: '',
+    description: '',
+    date: this.date,
+    validity: 0
+  }
+  formNewVaccineHidden = true
 
   ngOnInit() {
     const routeParams = this.route.snapshot.paramMap;
@@ -42,8 +50,24 @@ export class DetailsComponent {
         disease: this.newDisease
       }
 
-      this.Api.addDisease(dto).subscribe()
-      window.location.reload()
+      this.Api.addDisease(dto).subscribe(() => {
+        window.location.reload()
+      })
     }
+  }
+
+  osSubmitVaccine() {
+    const dto: AddVaccineDTO = {
+      pet: this.pet.id,
+      vaccine: this.newVaccine
+    }
+
+    this.Api.addVaccine(dto).subscribe(() => {
+      window.location.reload()
+    })
+  }
+
+  toggleNewVaccine() {
+    this.formNewVaccineHidden = !this.formNewVaccineHidden;
   }
 }

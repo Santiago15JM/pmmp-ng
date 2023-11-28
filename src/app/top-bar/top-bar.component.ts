@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ApiService } from '../api.service';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 

@@ -7,7 +7,7 @@
         </div>
 
         <input required #email="ngModel" type="text" name="email" placeholder="Email" [(ngModel)]="user.email">
-        <input required #password="ngModel" type="text" name="password" placeholder="Contraseña" [(ngModel)]="user.password">
+        <input required #password="ngModel" type="password" name="password" placeholder="Contraseña" [(ngModel)]="user.password">
 
         <button [disabled]="userForm.invalid" type="submit">Iniciar sesion</button>
 

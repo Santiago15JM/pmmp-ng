@@ -1,14 +1,15 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
-import { ListedPet, Pet, RegisterPet, DiseaseName } from 'src/models/pet.model';
-import { User, RegisterUser, LoginUser } from "src/models/user.model";
-import { AddDiseaseDTO } from 'src/models/dto/dtos';
+import { Pet } from 'src/models/pet.model';
+import { User } from "src/models/user.model";
+import { AddDiseaseDTO, AddVaccineDTO, DiseaseName, ListedPet, LoginUser, RegisterPet, RegisterUser } from 'src/models/dto/dtos';
+import { Summary } from 'src/models/stats.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  url = 'http://localhost:8081/'
+  url = 'http://localhost:8085/'
 
   constructor(private http: HttpClient) { }
 
@@ -40,15 +41,24 @@ export class ApiService {
     return this.http.get<ListedPet[]>(`${this.url}pets/getUserPets?u=${userId}`);
   }
 
-  getPublicStatus(): any {
-    return this.http.get(`${this.url}stats/getPublicStatus`);
+  getPublicStatus(userId: string): any {
+    return this.http.get<Summary[]>(`${this.url}stats/getPublicStatus?user=${userId}`);
   }
 
   getDiseases(type: string) {
     return this.http.get<DiseaseName[]>(`${this.url}diseases?type=${type}`);
   }
 
+  getBreeds(type: String) {
+    // return ["Pastor", "Pitbull", "Criollo"]
+    return this.http.get<string[]>(`${this.url}pets/getBreeds?type=${type}`);
+  }
+
   addDisease(dto: AddDiseaseDTO) {
     return this.http.post(`${this.url}pets/addDisease`, dto);
+  }
+
+  addVaccine(dto: AddVaccineDTO) {
+    return this.http.post(`${this.url}pets/addVaccine`, dto)
   }
 }

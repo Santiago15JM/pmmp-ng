@@ -2,13 +2,15 @@
 <div class="summary" *ngFor="let s of summaries">
     <div class="stats">
         <h2>{{s.type}}</h2>
-        <div class="stat" *ngFor="let i of s.stats">
-            <circle-progress [percent]="i.value" ></circle-progress>
-            <p >{{i.stat}}</p>
+        <h2>{{s.breed}}</h2>
+        <div class="entry" *ngFor="let e of s.entries">
+            <circle-progress [percent]="e.percentage" ></circle-progress>
+            <p >{{e.disease}}</p>
+
+            <div class="recommendations">
+                <h2>Recomendaciones</h2>
+                <p *ngFor="let r of e.recommendations">{{r.description}}</p>
+            </div>
         </div>
-    </div>
-    <div class="recommendations">
-        <h2>Recomendaciones</h2>
-        <p *ngFor="let r of s.recommendations">{{r}}</p>
     </div>
 </div>

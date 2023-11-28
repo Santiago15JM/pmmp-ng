@@ -1,15 +1,36 @@
 <div class="container">
     <form (ngSubmit)="onSubmit(pet)" #petForm="ngForm">
         <h3>Registrar mascota</h3>
-        
+
         <div id="alert" *ngIf="name.invalid || type.invalid || breed.invalid || sex.invalid || age.invalid">
             Ingresa todos los datos!
         </div>
 
         <input required #name="ngModel" type="text" name="name" placeholder="Nombre" [(ngModel)]="pet.name">
-        <input required #type="ngModel" type="text" name="type" placeholder="Tipo" [(ngModel)]="pet.type">
-        <input required #breed="ngModel" type="text" name="breed" placeholder="Raza" [(ngModel)]="pet.breed">
-        <input required #sex="ngModel" type="text" name="sex" placeholder="Sexo" [(ngModel)]="pet.sex">
+
+        <div class="select-div">
+            <select required #type="ngModel" id="type" [(ngModel)]="pet.type" name="type" (change)="getBreeds(pet.type)">
+                <option disabled selected value="">Tipo</option>
+                <option value="Perro">Perro</option>
+                <option value="Gato">Gato</option>
+            </select>
+        </div>
+
+        <div class="select-div">
+            <select required #breed="ngModel" id="breed" [(ngModel)]="pet.breed" name="breed" [disabled]="!pet.type">
+                <option disabled selected value="">Raza</option>
+                <option *ngFor="let breed of breeds" [value]="breed">{{ breed }}</option>
+            </select>
+        </div>
+
+        <div class="select-div">
+            <select required #sex="ngModel" id="sex" [(ngModel)]="pet.sex" name="sex">
+                <option disabled selected value="">Sexo</option>
+                <option value="macho">Macho</option>
+                <option value="hembra">Hembra</option>
+            </select>
+        </div>
+
         <input required #age="ngModel" type="number" name="age" placeholder="Edad" [(ngModel)]="pet.age">
         <button [disabled]="petForm.invalid" type="submit">Registrar</button>
 

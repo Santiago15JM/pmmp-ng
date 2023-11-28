@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Summary } from 'src/models/stats.model';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-animal-panel',
@@ -7,13 +9,16 @@ import { ApiService } from '../api.service';
   styleUrls: ['./animal-panel.component.css']
 })
 export class AnimalPanelComponent {
-  summaries!: any[]
+  summaries!: Summary[]
   
-  constructor(private Api: ApiService) { }
+  constructor(private Api: ApiService, private Auth: AuthService) { }
 
   ngOnInit() {
-    this.summaries = this.Api.getPublicStatus()
-  }
+    const id = this.Auth.userId
+    this.Api.getPublicStatus(id).subscribe((res: Summary[]) =>{
+      this.summaries = res
+    })
 
+  }
 
 }

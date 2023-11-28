@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
-
-import { ListedPet } from 'src/models/pet.model';
 import { AuthService } from '../auth.service';
+import { ListedPet } from 'src/models/dto/dtos';
 
 @Component({
   selector: 'app-dashboard',

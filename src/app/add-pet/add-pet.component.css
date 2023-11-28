@@ -1,10 +1,10 @@
-.container{
+.container {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-form{
+form {
     width: fit-content;
     display: flex;
     flex-direction: column;
@@ -14,13 +14,32 @@ form{
     align-items: center;
 }
 
-input{
+input {
     margin: 10px;
     padding: 10px;
     border: 0;
 }
 
-button{
+.select-div{
+    width: 90%;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+label {
+    text-align: left;
+    flex-direction: column;
+    background-color: #d9d9d9;
+}
+
+button {
     border: 0;
     padding: 10px;
     color: white;
@@ -28,6 +47,6 @@ button{
     cursor: pointer;
 }
 
-#alert{
+#alert {
     color: #3366cc;
 }

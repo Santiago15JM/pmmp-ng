@@ -10,8 +10,6 @@ export interface Pet {
     vaccines: Vaccine[]
 }
 
-export interface RegisterPet extends Omit<Pet, "id"> { }
-
 export interface Disease {
     id: string
     name: string
@@ -19,7 +17,6 @@ export interface Disease {
     recommendations: Recommendation[]
 }
 
-export interface DiseaseName extends Omit<Disease, "description" | "recommendations"> { }
 
 export interface Recommendation {
     id: string
@@ -27,11 +24,10 @@ export interface Recommendation {
 }
 
 export interface Vaccine {
-    id: string
     name: string
     description: string
     date: Date
     validity: number
 }
 
-export interface ListedPet extends Omit<Pet, "ownerId"|"age"|"diseases"|"vaccines"> {}
+

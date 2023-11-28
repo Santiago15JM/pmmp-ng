@@ -1,9 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiService } from '../api.service';
-
-import { LoginUser } from 'src/models/user.model';
 import { AuthService } from '../auth.service';
+import { LoginUser } from 'src/models/dto/dtos';
 
 @Component({
   selector: 'app-login',

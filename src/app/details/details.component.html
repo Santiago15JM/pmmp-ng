@@ -15,9 +15,11 @@
             <ul *ngIf="pet.diseases.length != 0; else elseDis">
                 <li *ngFor="let disease of pet.diseases">{{ disease.name }}: {{disease.description}}</li>
             </ul>
+
             <ng-template #elseDis>
                 <p>No hay enfermedades registradas</p>
             </ng-template>
+
             <div class="new-disease">
                 <h3>Agregar enfermedad</h3>
                 <select (change)="updateNewDisease($event)">
@@ -27,6 +29,7 @@
                 <button (click)="osSubmitDisease()">Agregar</button>
             </div>
         </div>
+
         <div class="details-info" *ngIf="pet.diseases.length != 0">
             <h2>Recomendaciones</h2>
             <ul>
@@ -35,6 +38,7 @@
                 </ng-container>
             </ul>
         </div>
+
         <div class="details-info">
             <h2>Vacunas</h2>
             <table *ngIf="pet.vaccines.length != 0; else elseVac">
@@ -49,9 +53,36 @@
                     <td>{{ vaccine.validity }}</td>
                 </tr>
             </table>
+
             <ng-template #elseVac>
                 <p>No hay vacunas registradas</p>
             </ng-template>
+
+            <button (click)="toggleNewVaccine()">Agregar nueva vacuna</button>
+
+            <div class="new-vaccine" [ngClass]="{'displayed': formNewVaccineHidden == false, 'hidden': formNewVaccineHidden == true}">
+                <form (ngSubmit)="osSubmitVaccine()" #vaccineForm="ngForm">
+                    <h3>Agregar vacuna</h3>
+
+                    <div id="alert" *ngIf="name.invalid || description.invalid || date.invalid || validity.invalid">
+                        Ingresa todos los datos!
+                    </div>
+
+                    <label for="name">Nombre de la vacuna</label>
+                    <input required #name="ngModel" type="text" name="name" placeholder="Nombre" [(ngModel)]="newVaccine.name">
+                    
+                    <label for="description">Descripcion</label>
+                    <textarea required #description="ngModel" name="description" placeholder="Descripcion" [(ngModel)]="newVaccine.description"></textarea>
+                    
+                    <label for="date">Fecha de aplicacion</label>
+                    <input required #date="ngModel" type="date" name="date" [(ngModel)]="newVaccine.date">
+                    
+                    <label for="validity">Validez de la vacuna</label>
+                    <input required #validity="ngModel" type="number" name="validity" placeholder="(meses)" [(ngModel)]="newVaccine.validity">
+
+                    <button [disabled]="vaccineForm.invalid" type="submit">Agregar</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
