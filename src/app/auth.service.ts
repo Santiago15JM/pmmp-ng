@@ -20,6 +20,7 @@ export class AuthService {
     return this.Api.loginUser(user).pipe(
       tap(res => {
         localStorage.setItem('userId', res)
+        this.userId = res
         this._isLoggedIn.next(true)
       })
     )

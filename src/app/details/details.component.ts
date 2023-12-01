@@ -29,10 +29,9 @@ export class DetailsComponent {
     const routeParams = this.route.snapshot.paramMap;
     const id = String(routeParams.get('id'))
 
-    // this.petDetail = this.Api.getPet(id) as Pet
     this.Api.getPet(id).subscribe(p => {
       this.pet = p
-
+      
       this.Api.getDiseases(this.pet.type).subscribe(d => {
         this.diseases = d
       })
