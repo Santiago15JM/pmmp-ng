@@ -32,8 +32,8 @@ export class DetailsComponent {
     this.Api.getPet(id).subscribe(p => {
       this.pet = p
       
-      this.Api.getDiseases(this.pet.type).subscribe(d => {
-        this.diseases = d
+      this.Api.allDisease(this.pet.type).subscribe(d => {
+        this.diseases = d.data.allDisease
       })
     })
   }

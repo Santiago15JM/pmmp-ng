@@ -15,6 +15,7 @@ import { AnimalPanelComponent } from './animal-panel/animal-panel.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { GraphQLModule } from './graphql.module';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { RegisterComponent } from './register/register.component';
       "startFromZero": false,
       "showZeroOuterStroke": false,
       "lazy": true
-    })
+    }),
+    GraphQLModule
   ],
   providers: [],
   bootstrap: [AppComponent]

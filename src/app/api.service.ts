@@ -45,9 +45,9 @@ export class ApiService {
     return this.http.get<Summary[]>(`${this.url}stats/getPublicStatus?user=${userId}`);
   }
 
-  getDiseases(type: string) {
-    return this.http.get<DiseaseName[]>(`${this.url}diseases?type=${type}`);
-  }
+  // getDiseases(type: string) {
+  //   return this.http.get<DiseaseName[]>(`${this.url}diseases?type=${type}`);
+  // }
 
   getBreeds(type: String) {
     // return ["Pastor", "Pitbull", "Criollo"]
@@ -61,4 +61,24 @@ export class ApiService {
   addVaccine(dto: AddVaccineDTO) {
     return this.http.post(`${this.url}pets/addVaccine`, dto)
   }
+
+
+  DISEASES = gql`
+  query getDiseases($type: String!){
+      allDisease(type: $type){
+        id
+        name
+      }
+    }
+  `
+
+  allDisease(type: string) {
+    return this.apollo.watchQuery<any>({
+      query: this.DISEASES,
+      variables: {
+        type: type
+      }
+    }).valueChanges
+  }
+
 }
