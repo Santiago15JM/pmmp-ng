@@ -9,6 +9,7 @@
             <li>{{ pet.age }} años</li>
         </ul>
     </div>
+
     <div class="main-details">
         <div class="details-info">
             <h2>Enfermedades</h2>
@@ -60,7 +61,8 @@
 
             <button (click)="toggleNewVaccine()">Agregar nueva vacuna</button>
 
-            <div class="new-vaccine" [ngClass]="{'displayed': formNewVaccineHidden == false, 'hidden': formNewVaccineHidden == true}">
+            <div class="new-vaccine"
+                [ngClass]="{'displayed': formNewVaccineHidden == false, 'hidden': formNewVaccineHidden == true}">
                 <form (ngSubmit)="osSubmitVaccine()" #vaccineForm="ngForm">
                     <h3>Agregar vacuna</h3>
 
@@ -69,16 +71,19 @@
                     </div>
 
                     <label for="name">Nombre de la vacuna</label>
-                    <input required #name="ngModel" type="text" name="name" placeholder="Nombre" [(ngModel)]="newVaccine.name">
-                    
+                    <input required #name="ngModel" type="text" name="name" placeholder="Nombre"
+                        [(ngModel)]="newVaccine.name">
+
                     <label for="description">Descripcion</label>
-                    <textarea required #description="ngModel" name="description" placeholder="Descripcion" [(ngModel)]="newVaccine.description"></textarea>
-                    
+                    <textarea required #description="ngModel" name="description" placeholder="Descripcion"
+                        [(ngModel)]="newVaccine.description"></textarea>
+
                     <label for="date">Fecha de aplicacion</label>
                     <input required #date="ngModel" type="date" name="date" [(ngModel)]="newVaccine.date">
-                    
+
                     <label for="validity">Validez de la vacuna</label>
-                    <input required #validity="ngModel" type="number" name="validity" placeholder="(meses)" [(ngModel)]="newVaccine.validity">
+                    <input required #validity="ngModel" type="number" name="validity" placeholder="(meses)"
+                        [(ngModel)]="newVaccine.validity">
 
                     <button [disabled]="vaccineForm.invalid" type="submit">Agregar</button>
                 </form>

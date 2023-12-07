@@ -1,10 +1,10 @@
-.edit-profile-container{
+.edit-profile-container {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-form{
+form {
     width: fit-content;
     display: flex;
     flex-direction: column;
@@ -14,13 +14,13 @@ form{
     align-items: center;
 }
 
-input{
+input {
     margin: 10px;
     padding: 10px;
     border: 0;
 }
 
-button{
+button {
     border: 0;
     padding: 10px;
     color: white;
@@ -28,6 +28,6 @@ button{
     cursor: pointer;
 }
 
-#alert{
+#alert {
     color: #3366cc;
 }

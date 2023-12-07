@@ -10,9 +10,6 @@ import { Apollo, gql } from "apollo-angular";
   providedIn: 'root'
 })
 export class ApiService {
-  // url = 'http://localhost:8085/'
-  // url = 'https://api-gateway-app.salmonstone-1eb936e3.eastus.azurecontainerapps.io/'
-
   user_url = 'https://user-service-app--31h3btz.salmonstone-1eb936e3.eastus.azurecontainerapps.io/'
   stats_url = 'https://statistics-service-app.salmonstone-1eb936e3.eastus.azurecontainerapps.io/'
   pet_url = 'https://pet-service-app.salmonstone-1eb936e3.eastus.azurecontainerapps.io/'
@@ -52,12 +49,7 @@ export class ApiService {
     return this.http.get<Summary[]>(`${this.stats_url}stats/getPublicStatus?user=${userId}`);
   }
 
-  // getDiseases(type: string) {
-  //   return this.http.get<DiseaseName[]>(`${this.url}diseases?type=${type}`);
-  // }
-
   getBreeds(type: String) {
-    // return ["Pastor", "Pitbull", "Criollo"]
     return this.http.get<string[]>(`${this.pet_url}pets/getBreeds?type=${type}`);
   }
 
@@ -68,7 +60,6 @@ export class ApiService {
   addVaccine(dto: AddVaccineDTO) {
     return this.http.post(`${this.pet_url}pets/addVaccine`, dto)
   }
-
 
   DISEASES = gql`
   query getDiseases($type: String!){

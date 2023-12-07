@@ -9,9 +9,9 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./animal-panel.component.css']
 })
 export class AnimalPanelComponent {
-  summaries!: Summary[]
-  
   constructor(private Api: ApiService, private Auth: AuthService) { }
+  
+  summaries!: Summary[]
 
   ngOnInit() {
     const id = this.Auth.userId

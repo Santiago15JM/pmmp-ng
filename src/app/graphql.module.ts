@@ -3,8 +3,7 @@ import { HttpLink } from 'apollo-angular/http';
 import { NgModule } from '@angular/core';
 import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core';
 
-// const uri = 'http://localhost:8085/graphql'; // <-- add the URL of the GraphQL server here
-const uri = 'https://disease-service-app--su817dy.salmonstone-1eb936e3.eastus.azurecontainerapps.io/graphql'; // <-- add the URL of the GraphQL server here
+const uri = 'https://disease-service-app--su817dy.salmonstone-1eb936e3.eastus.azurecontainerapps.io/graphql';
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   return {
     link: httpLink.create({ uri }),
@@ -22,4 +21,4 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
     },
   ],
 })
-export class GraphQLModule {}
+export class GraphQLModule { }

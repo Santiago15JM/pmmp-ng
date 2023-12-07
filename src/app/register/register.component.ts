@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
-
 import { Router } from '@angular/router';
 import { RegisterUser } from 'src/models/dto/dtos';
 
@@ -10,6 +9,8 @@ import { RegisterUser } from 'src/models/dto/dtos';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  constructor(private router: Router, private Api: ApiService) { }
+
   user: RegisterUser = {
     name: '',
     lastname: '',
@@ -19,10 +20,8 @@ export class RegisterComponent {
     address: ''
   }
 
-  constructor(private router: Router, private Api: ApiService){}
-
   onSubmit(user: RegisterUser) {
-    this.Api.createUser(user).subscribe(()=>{
+    this.Api.createUser(user).subscribe(() => {
       this.router.navigate(['login']);
     })
   }

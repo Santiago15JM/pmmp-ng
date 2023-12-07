@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
-import { Pet } from '../../models/pet.model'
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { AddPetDTO } from 'src/models/dto/dtos';
@@ -11,6 +10,8 @@ import { AddPetDTO } from 'src/models/dto/dtos';
   styleUrls: ['./add-pet.component.css']
 })
 export class AddPetComponent {
+  constructor(private router: Router, private api: ApiService, private Auth: AuthService) { }
+  
   pet: AddPetDTO = {
     name: '',
     type: '',
@@ -21,10 +22,8 @@ export class AddPetComponent {
     diseases: [],
     vaccines: []
   }
-
+  
   breeds!: string[];
-
-  constructor(private router: Router, private api: ApiService, private Auth: AuthService) { }
 
   getBreeds(type: string) {
     this.pet.breed = ""

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ActivatedRoute } from '@angular/router';
-
 import { Pet, Vaccine } from 'src/models/pet.model';
 import { AddDiseaseDTO, AddVaccineDTO, DiseaseName } from 'src/models/dto/dtos';
 
@@ -11,10 +10,11 @@ import { AddDiseaseDTO, AddVaccineDTO, DiseaseName } from 'src/models/dto/dtos';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent {
+  constructor(private route: ActivatedRoute, private Api: ApiService) { }
+  
   pet!: Pet
   diseases!: DiseaseName[]
 
-  constructor(private route: ActivatedRoute, private Api: ApiService) { }
   newDisease = ''
   date = new Date();
   newVaccine: Vaccine = {

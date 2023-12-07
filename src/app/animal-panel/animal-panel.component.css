@@ -1,4 +1,4 @@
-.summary{
+.summary {
     margin: 20px;
     padding: 10px 30px;
     display: flex;
@@ -6,11 +6,11 @@
     background-color: #d9d9d9;
 }
 
-.stat{
+.stat {
     display: flex;
     align-items: center;
 }
 
-circle-progress{
+circle-progress {
     margin-right: 20px;
 }

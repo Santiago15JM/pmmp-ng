@@ -9,7 +9,7 @@ import { AuthService } from '../auth.service';
 })
 export class TopBarComponent {
 
-  constructor(private router: Router, public Auth: AuthService) {}
+  constructor(private router: Router, public Auth: AuthService) { }
 
   logOut() {
     this.Auth.logout()

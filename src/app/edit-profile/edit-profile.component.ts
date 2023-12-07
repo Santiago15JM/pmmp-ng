@@ -10,9 +10,9 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./edit-profile.component.css']
 })
 export class EditProfileComponent {
-  user!: User
-
   constructor(private router: Router, private Api: ApiService, public Auth: AuthService) { }
+
+  user!: User
 
   ngOnInit() {
     const id = this.Auth.userId;

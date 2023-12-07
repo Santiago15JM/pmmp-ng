@@ -1,49 +1,49 @@
-.login-container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.login-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-form{
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    background-color: #d9d9d9;
-    margin: 40px;
-    padding: 20px;
-    align-items: center;
+form {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  background-color: #d9d9d9;
+  margin: 40px;
+  padding: 20px;
+  align-items: center;
 }
 
-input{
-    margin: 10px;
-    padding: 10px;
-    border: 0;
+input {
+  margin: 10px;
+  padding: 10px;
+  border: 0;
 }
 
-button{
-    border: 0;
-    padding: 10px;
-    color: white;
-    background: #3366cc;
-    cursor: pointer;
+button {
+  border: 0;
+  padding: 10px;
+  color: white;
+  background: #3366cc;
+  cursor: pointer;
 }
 
 .register-message {
   font-size: 13px;
 }
 
-.register-message > a {
+.register-message>a {
   color: #3376d1;
 }
 
-.register-message > a:link {
+.register-message>a:link {
   color: #3376d1;
 }
 
-.register-message > a:visited {
+.register-message>a:visited {
   color: #3376d1;
 }
 
-#alert{
-    color: #3366cc;
+#alert {
+  color: #3366cc;
 }

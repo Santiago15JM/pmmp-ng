@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { LoginUser } from 'src/models/dto/dtos';
@@ -10,6 +10,7 @@ import { LoginUser } from 'src/models/dto/dtos';
 })
 export class LoginComponent {
   constructor(private router: Router, private auth: AuthService) { }
+
   user: LoginUser = { email: "", password: "" }
 
   onSubmit(user: LoginUser) {
